@@ -4,8 +4,6 @@ import "styles.css";
 import { getAppName } from "helpers";
 import Routes from "routes";
 
-// Testing a Push
-
 const App = () => (
   <div className="App">
     <h1>{getAppName()}</h1>
