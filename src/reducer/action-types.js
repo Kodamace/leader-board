@@ -1,0 +1,15 @@
+export const SET_NAME = "SET_NAME";
+export const SET_POINTS = "SET_POINTS";
+
+export const SET_USERNAME = "SET_USERNAME";
+export const SET_PASSWORD = "SET_PASSWORD";
+
+export const SUBMIT_CONTESTANT = "SUBMIT_CONTESTANT";
+
+export const REFRESH_CONTESTANTS = "REFRESH_CONTESTANTS";
+export const REFRESH_POINTS = "REFRESH_POINTS";
+
+export const REMOVE_CONTESTANT = "REMOVE_CONTESTANT";
+
+export const TOGGLE_LOGGED_IN = "TOGGLE_LOGGED_IN";
+export const LOG_IN = "LOG_IN";
