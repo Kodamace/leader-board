@@ -1,10 +1,42 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from 'react'
 
-import Contestant from "./contestant";
+import { getContestants } from 'services'
+
+import Contestant from './contestant'
 
 const DisplayData = () => {
-  const contestants = useSelector(state => state.contestants);
+  // const contestants = useSelector(state => state.contestants);
+  const [isFetching, setIsFetching] = useState(true)
+  const [contestants, setContestants] = useState([])
+
+  const fetchContestants = async () => {
+    try {
+      const results = await getContestants()
+      setContestants(results)
+      setIsFetching(false)
+    } catch (ex) {
+      alert('Something bad happened')
+      console.log(ex)
+      setIsFetching(false)
+    }
+  }
+
+  useEffect(() => {
+    fetchContestants()
+
+    // getContestants()
+    //   .then((results) => {
+    //     setContestants(results)
+    //     setIsFetching(false)
+    //   })
+    //   .catch((err) => {
+    //     alert('Something bad happened')
+    //     console.log(err)
+    //     setIsFetching(false)
+    //   })
+  }, [])
+
+  if (isFetching) return <h4>Fetching Contestants...</h4>
 
   return (
     <div>
@@ -17,7 +49,7 @@ const DisplayData = () => {
         <h4>No Contestants Yet</h4>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default DisplayData;
+export default DisplayData
