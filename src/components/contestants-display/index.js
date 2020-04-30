@@ -10,15 +10,9 @@ const DisplayData = () => {
   const [contestants, setContestants] = useState([])
 
   const fetchContestants = async () => {
-    try {
-      const results = await getContestants()
-      setContestants(results)
-      setIsFetching(false)
-    } catch (ex) {
-      alert('Something bad happened')
-      console.log(ex)
-      setIsFetching(false)
-    }
+    const results = await getContestants()
+    setContestants(results)
+    setIsFetching(false)
   }
 
   useEffect(() => {

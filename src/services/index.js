@@ -16,10 +16,15 @@ firebase.initializeApp(config)
 export default firebase.firestore()
 
 export const getContestants = async () => {
-  const snapshot = await firebase
-    .firestore()
-    .collection('contestants')
-    .orderBy('points', 'desc')
-    .get()
-  return snapshot.docs.map((doc) => doc.data())
+  try {
+    const snapshot = await firebase
+      .firestore()
+      .collection('contestants')
+      .orderBy('points', 'desc')
+      .get()
+    return snapshot.docs.map((doc) => doc.data())
+  } catch (ex) {
+    alert('Something bad happened')
+    console.log(ex)
+  }
 }
