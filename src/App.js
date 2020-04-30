@@ -4,12 +4,15 @@ import "styles.css";
 import { getAppName } from "helpers";
 import Routes from "routes";
 
-const App = () => (
+const App = () => {
+  
+  return (
   <div className="App">
     <h1>{getAppName()}</h1>
     <Routes />
   </div>
 );
+  }
 
 export default App;
 

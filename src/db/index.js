@@ -1,6 +1,6 @@
 import firebase from 'firebase'
 
-const firebaseConfig = {
+const config = {
   apiKey: "AIzaSyDCWMcjaM4tQer-_228g1c20c7uwOY4u14",
   authDomain: "leader-board-c3385.firebaseapp.com",
   databaseURL: "https://leader-board-c3385.firebaseio.com",
@@ -13,5 +13,4 @@ const firebaseConfig = {
 
 firebase.initializeApp(config);
 
-export default firebase;
-// npm install firebase
+export default firebase.firestore();
