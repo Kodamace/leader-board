@@ -42,3 +42,12 @@
   margin-left: 4.8em;
   margin-top: 1.2em;
 }
+
+.contestant-row {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contestant-row:hover {
+  background-color: limegreen;
+}

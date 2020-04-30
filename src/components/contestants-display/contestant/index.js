@@ -1,17 +1,21 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React from 'react'
+import { useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 
-import "styles.css";
+import 'styles.css'
 
-import { DispatchButton } from "components";
-import { removeContestant } from "reducer/actions";
+import { DispatchButton } from 'components'
+import { removeContestant } from 'reducer/actions'
 
-const Contestant = ({ index, name, points }) => {
-  const isLoggedIn = useSelector(state => state.isLoggedIn);
+const Contestant = ({ id, name, points, rank }) => {
+  const history = useHistory()
+  const isLoggedIn = useSelector((state) => state.isLoggedIn)
+
+  const handleClick = () => history.push(`/contestant/${id}`)
 
   return (
-    <div className="dataDisplay">
-      <div className="ranker">{index + 1}</div>
+    <div className="contestant-row" onClick={handleClick}>
+      <div className="ranker">{rank}</div>
       <div className="name">{name}</div>
       <div className="points">{points}</div>
       {isLoggedIn && (
@@ -23,7 +27,7 @@ const Contestant = ({ index, name, points }) => {
       <hr />
       <br />
     </div>
-  );
-};
+  )
+}
 
-export default Contestant;
+export default Contestant

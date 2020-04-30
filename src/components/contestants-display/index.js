@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 
 import { getContestants } from 'services'
 
@@ -9,11 +9,11 @@ const DisplayData = () => {
   const [isFetching, setIsFetching] = useState(true)
   const [contestants, setContestants] = useState([])
 
-  const fetchContestants = async () => {
+  const fetchContestants = useCallback(async () => {
     const results = await getContestants()
     setContestants(results)
     setIsFetching(false)
-  }
+  }, [])
 
   useEffect(() => {
     fetchContestants()
@@ -28,7 +28,7 @@ const DisplayData = () => {
     //     console.log(err)
     //     setIsFetching(false)
     //   })
-  }, [])
+  }, [fetchContestants])
 
   if (isFetching) return <h4>Fetching Contestants...</h4>
 
@@ -36,8 +36,8 @@ const DisplayData = () => {
     <div>
       {/* we then pass contestant below  */}
       {contestants.length > 0 ? (
-        contestants.map((contestant, index) => (
-          <Contestant key={contestant.name} index={index} {...contestant} />
+        contestants.map((contestant) => (
+          <Contestant key={contestant.name} {...contestant} />
         ))
       ) : (
         <h4>No Contestants Yet</h4>
