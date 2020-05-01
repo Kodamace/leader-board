@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+// import { history } from 'core'
 
 import { logIn } from 'reducer/actions'
 
@@ -24,7 +25,7 @@ const LoginPage = () => {
 
   function handleLoginClick() {
     dispatch(logIn(username, password))
-    // history.push('/')
+    history.push('/')
   }
 
   return (
