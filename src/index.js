@@ -10,7 +10,8 @@ import storage from 'redux-persist/lib/storage'
 
 import reducer from 'reducer'
 
-import App from './App'
+import App from 'App'
+import { ViewportProvider } from 'hooks'
 
 const persistedReducer = persistReducer(
   {
@@ -33,7 +34,9 @@ ReactDOM.render(
         persistor={persistor}
       >
         <BrowserRouter>
-          <App />
+          <ViewportProvider>
+            <App />
+          </ViewportProvider>
         </BrowserRouter>
       </PersistGate>
     </Provider>
