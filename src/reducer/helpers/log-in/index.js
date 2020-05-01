@@ -1,4 +1,4 @@
-import { useHistory } from 'react-router-dom'
+import { history } from 'core'
 
 const logIn = (state, { password, username }) => {
   if (username !== 'admin') {
@@ -10,6 +10,7 @@ const logIn = (state, { password, username }) => {
     return state
   }
 
+  history.push('/')
   return { ...state, isLoggedIn: true }
 }
 
