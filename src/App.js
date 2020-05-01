@@ -1,17 +1,13 @@
 import React from 'react'
 
-import { getAppName } from 'helpers'
-import Routes from 'routes'
 import 'styles.css'
 
-const App = () => (
-  <div className="App">
-    <h1>{getAppName()}</h1>
-    <Routes />
-  </div>
-)
+const App = () => {
+  return (
+    <div className="App">
+      <h1>App</h1>
+    </div>
+  )
+}
 
 export default App
-
-// https://stackoverflow.com/questions/6515502/javascript-form-submit-confirm-or-cancel-submission-dialog-box
-// https://react-redux.js.org/api/connect
