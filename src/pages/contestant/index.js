@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 
 import { getContestant } from 'services'
 
@@ -7,6 +7,7 @@ const ContestantPage = () => {
   const { id } = useParams()
   const [isFetching, setIsFetching] = useState(true)
   const [contestant, setContestant] = useState()
+  const history = useHistory()
 
   const fetchContestant = useCallback(async () => {
     const result = await getContestant(id)
@@ -36,6 +37,11 @@ const ContestantPage = () => {
       <br />
       <strong>Rank: </strong>
       {contestant.rank}
+      <br />
+      <br />
+      <button onClick={() => history.push('/')}>
+        Back to contestant display
+      </button>
     </div>
   )
 }
