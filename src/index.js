@@ -11,7 +11,6 @@ import storage from 'redux-persist/lib/storage'
 import reducer from 'reducer'
 
 import App from 'App'
-import { history } from 'core'
 import { ViewportProvider } from 'hooks'
 
 const persistedReducer = persistReducer(
@@ -34,7 +33,7 @@ ReactDOM.render(
         loading={<div>Loading LocalStorage...</div>}
         persistor={persistor}
       >
-        <BrowserRouter history={history}>
+        <BrowserRouter>
           <ViewportProvider>
             <App />
           </ViewportProvider>

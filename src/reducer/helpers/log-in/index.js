@@ -1,5 +1,3 @@
-import { history } from 'core'
-
 const logIn = (state, { password, username }) => {
   if (username !== 'admin') {
     alert('Username does not exist!')
@@ -10,7 +8,6 @@ const logIn = (state, { password, username }) => {
     return state
   }
 
-  history.push('/')
   return { ...state, isLoggedIn: true }
 }
 
