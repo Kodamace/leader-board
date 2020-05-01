@@ -9,7 +9,7 @@ const UserPage = lazy(() => import('pages/user'))
 
 const Routes = () => (
   <Switch>
-    <Suspense fallback={<div>Loading Page..</div>}>
+    <Suspense fallback={<div>Loading Page...</div>}>
       <Route path="/admin" component={AdminPage} />
       <Route path="/contestant/:id" component={ContestantPage} />
       <Route path="/login" component={LoginPage} />

@@ -1,55 +1,57 @@
-import * as types from "./action-types";
+import * as types from './action-types'
 import {
   logIn,
   refreshContestants,
   refreshPoints,
   removeContestant,
-  submitContestants
-} from "./helpers";
+  submitContestants,
+} from './helpers'
 
 const initialState = {
   contestants: [],
   isLoggedIn: false,
-  name: "",
-  points: "",
+  name: '',
+  points: '',
 
-  username: "",
-  password: ""
-};
+  username: '',
+  password: '',
+}
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case types.SET_NAME:
-      return { ...state, name: action.name };
+      return { ...state, name: action.name }
     case types.SET_POINTS:
-      return { ...state, points: action.points };
+      return { ...state, points: action.points }
+    case types.CLEAR_CONTESTANT_INPUTS:
+      return { ...state, name: '', points: '' }
 
     case types.SET_USERNAME:
-      return { ...state, username: action.username };
+      return { ...state, username: action.username }
     case types.SET_PASSWORD:
-      return { ...state, password: action.password };
+      return { ...state, password: action.password }
 
     case types.SUBMIT_CONTESTANT:
-      return submitContestants(state);
+      return submitContestants(state)
 
     case types.REFRESH_CONTESTANTS:
-      return refreshContestants(state);
+      return refreshContestants(state)
 
     case types.REFRESH_POINTS:
-      return refreshPoints(state);
+      return refreshPoints(state)
 
     case types.REMOVE_CONTESTANT:
-      return removeContestant(state, action.name);
+      return removeContestant(state, action.name)
 
     case types.TOGGLE_LOGGED_IN:
-      return { ...state, isLoggedIn: !state.isLoggedIn };
+      return { ...state, isLoggedIn: !state.isLoggedIn }
 
     case types.LOG_IN:
-      return logIn(state, action);
+      return logIn(state, action)
 
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default reducer;
+export default reducer

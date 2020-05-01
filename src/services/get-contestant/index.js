@@ -13,6 +13,7 @@ const getContestant = async (id) => {
     })
     if (foundDoc) return { ...foundDoc.data(), rank }
     alert('Contestant with that ID does not exist')
+    return undefined
   } catch (ex) {
     alert('Something bad happened')
     console.log(ex)
