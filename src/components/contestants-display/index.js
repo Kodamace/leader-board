@@ -11,7 +11,7 @@ const DisplayData = () => {
 
   const fetchContestants = useCallback(async () => {
     const results = await getContestants()
-    setContestants(results)
+    setContestants(results ? results : [])
     setIsFetching(false)
   }, [])
 
