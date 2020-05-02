@@ -1,6 +1,15 @@
-import React, { useState } from 'react'
+import React, { createContext, useState } from 'react'
 
+import Name from './name'
+import Points from './points'
 import Submit from './submit'
+
+export const InputContext = createContext({
+  name: '',
+  points: '',
+  setName: () => null,
+  setPoint: () => null,
+})
 
 const Input = () => {
   const [name, setName] = useState('')
@@ -9,24 +18,11 @@ const Input = () => {
   return (
     <div>
       Contestant Input <br />
-      <input
-        onChange={(e) => setName(e.target.value)}
-        type="text"
-        placeholder="Contestant Name"
-        value={name}
-      />
-      <input
-        onChange={(e) => setPoints(e.target.value)}
-        type="number"
-        placeholder="Contestant Points"
-        value={points}
-      />
-      <Submit
-        name={name}
-        points={points}
-        setName={setName}
-        setPoints={setPoints}
-      />
+      <InputContext.Provider value={{ name, points, setName, setPoints }}>
+        <Name />
+        <Points />
+        <Submit />
+      </InputContext.Provider>
     </div>
   )
 }
