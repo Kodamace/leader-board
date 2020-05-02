@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
 import { logIn } from 'reducer/actions'
@@ -7,25 +7,25 @@ import { logIn } from 'reducer/actions'
 const LoginPage = () => {
   const dispatch = useDispatch()
   const history = useHistory()
+  const isLoggedIn = useSelector((state) => state.isLoggedIn)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  // const username = useSelector(state => state.username);
-  // const password = useSelector(state => state.password);
 
   function handleUsernameChange(e) {
     setUsername(e.target.value)
-    // dispatch(setUsername(e.target.value));
   }
 
   function handlePasswordChange(e) {
     setPassword(e.target.value)
-    // dispatch(setPassword(e.target.value));
   }
 
   function handleLoginClick() {
     dispatch(logIn(username, password))
-    // history.push('/')
   }
+
+  useEffect(() => {
+    if (isLoggedIn) history.push('/')
+  }, [history, isLoggedIn])
 
   return (
     <>

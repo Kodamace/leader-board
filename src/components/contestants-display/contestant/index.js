@@ -2,10 +2,8 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
+import DeleteButton from './delete-button'
 import 'styles.css'
-
-import { DispatchButton } from 'components'
-import { removeContestant } from 'reducer/actions'
 
 const Contestant = ({ id, name, points, rank }) => {
   const history = useHistory()
@@ -18,12 +16,7 @@ const Contestant = ({ id, name, points, rank }) => {
       <div className="ranker">{rank}</div>
       <div className="name">{name}</div>
       <div className="points">{points}</div>
-      {isLoggedIn && (
-        <DispatchButton
-          action={() => removeContestant(name)}
-          text="Remove Contestant"
-        />
-      )}
+      {isLoggedIn && <DeleteButton id={id} />}
       <hr />
       <br />
     </div>

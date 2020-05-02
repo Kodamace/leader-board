@@ -25,9 +25,9 @@ export const removeContestant = (name) => ({
   type: types.REMOVE_CONTESTANT,
 })
 
-export const toggleLoggedIn = () => ({ type: types.TOGGLE_LOGGED_IN })
 export const logIn = (username, password) => ({
   password,
   type: types.LOG_IN,
   username,
 })
+export const logOut = () => ({ type: types.LOG_OUT })
