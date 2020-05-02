@@ -1,5 +1,5 @@
-const refreshContestants = state => {
-  return { ...state, contestants: [] };
-}
+// const refreshContestants = state => {
+//   return { ...state, contestants: [] };
+// }
 
-export default refreshContestants;
+// export default refreshContestants;
