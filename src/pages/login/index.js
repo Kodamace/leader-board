@@ -46,7 +46,6 @@ const LoginPage = () => {
       <br />
       <br />
       <button onClick={() => history.push('/')}>Back</button>
-      <button onClick={() => history.push('/user/username')}>User</button>
     </>
   )
 }

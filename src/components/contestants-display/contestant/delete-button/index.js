@@ -18,7 +18,7 @@ const DeleteButton = ({ id }) => {
 
   return (
     <button disabled={isDeleting} onClick={handleClick}>
-      Remov{isDeleting ? 'ing' : 'e'} Contestant{isDeleting ? '...' : ''}}
+      Remov{isDeleting ? 'ing' : 'e'} Contestant{isDeleting ? '...' : ''}
     </button>
   )
 }
