@@ -1,22 +1,19 @@
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useContext, useState } from 'react'
 
-import { clearContestantInputs } from 'reducer/actions'
 import { addContestant } from 'services'
 
+import { InputContext } from '../'
+
 const Submit = () => {
-  const dispatch = useDispatch()
-  const { name, points } = useSelector((state) => ({
-    name: state.name,
-    points: state.points,
-  }))
+  const { name, points, setName, setPoints } = useContext(InputContext)
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleSubmitClick = async () => {
     setIsSubmitting(true)
     await addContestant(name, points)
     setIsSubmitting(false)
-    dispatch(clearContestantInputs())
+    setName('')
+    setPoints('')
   }
 
   return (

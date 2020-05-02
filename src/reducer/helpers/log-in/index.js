@@ -1,5 +1,3 @@
-// import { history } from 'core'
-
 const logIn = (state, { password, username }) => {
   if (username !== 'admin') {
     alert('Username does not exist!')

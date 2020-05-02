@@ -1,5 +1,6 @@
 import db from 'services'
 
+// TODO: handle adding exisiting contestant (update)
 const getContestant = async (id) => {
   try {
     const snapshot = await db

@@ -8,19 +8,22 @@ import {
 } from './helpers'
 
 const initialState = {
-  contestants: [],
   isLoggedIn: false,
+
+  // Remove this (not being used)
   name: '',
   points: '',
-
+  contestants: [],
   username: '',
   password: '',
 }
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.SET_NAME:
+    case 'SET_NAME':
       return { ...state, name: action.name }
+
+    // TODO: Remove ALL THIS
     case types.SET_POINTS:
       return { ...state, points: action.points }
     case types.CLEAR_CONTESTANT_INPUTS:
@@ -42,12 +45,13 @@ const reducer = (state = initialState, action) => {
 
     case types.REMOVE_CONTESTANT:
       return removeContestant(state, action.name)
-
-    case types.TOGGLE_LOGGED_IN:
-      return { ...state, isLoggedIn: !state.isLoggedIn }
+    // UP UNTIL HERE
 
     case types.LOG_IN:
       return logIn(state, action)
+
+    case types.LOG_OUT:
+      return { ...state, isLoggedIn: false }
 
     default:
       return state

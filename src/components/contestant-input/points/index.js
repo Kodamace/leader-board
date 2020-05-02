@@ -1,22 +1,20 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useContext } from 'react'
 
-import { setPoints } from "reducer/actions";
+import { InputContext } from '../'
 
 const Points = () => {
-  const dispatch = useDispatch();
-  const points = useSelector(state => state.points);
+  const { points, setPoints } = useContext(InputContext)
 
-  const handlePointsChange = e => dispatch(setPoints(e.target.value));
+  const handleChange = (e) => setPoints(e.target.value)
 
   return (
     <input
-      onChange={handlePointsChange}
-      type="number"
+      onChange={handleChange}
+      type="text"
       placeholder="Contestant Points"
       value={points}
     />
-  );
-};
+  )
+}
 
-export default Points;
+export default Points
