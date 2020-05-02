@@ -9,10 +9,10 @@ import {
 
 const initialState = {
   isLoggedIn: false,
-  name: '',
-  points: '',
 
   // Remove this (not being used)
+  name: '',
+  points: '',
   contestants: [],
   username: '',
   password: '',
@@ -22,12 +22,13 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'SET_NAME':
       return { ...state, name: action.name }
+
+    // TODO: Remove ALL THIS
     case types.SET_POINTS:
       return { ...state, points: action.points }
     case types.CLEAR_CONTESTANT_INPUTS:
       return { ...state, name: '', points: '' }
 
-    // TODO: Remove ALL THIS
     case types.SET_USERNAME:
       return { ...state, username: action.username }
     case types.SET_PASSWORD:
