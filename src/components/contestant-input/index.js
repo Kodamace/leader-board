@@ -1,16 +1,34 @@
-import React from "react";
+import React, { useState } from 'react'
 
-import Name from "./name";
-import Points from "./points";
-import Submit from "./submit";
+import Submit from './submit'
 
-const Input = () => (
-  <div>
-    Contestant Input <br />
-    <Name />
-    <Points />
-    <Submit />
-  </div>
-);
+const Input = () => {
+  const [name, setName] = useState('')
+  const [points, setPoints] = useState('')
 
-export default Input;
+  return (
+    <div>
+      Contestant Input <br />
+      <input
+        onChange={(e) => setName(e.target.value)}
+        type="text"
+        placeholder="Contestant Name"
+        value={name}
+      />
+      <input
+        onChange={(e) => setPoints(e.target.value)}
+        type="number"
+        placeholder="Contestant Points"
+        value={points}
+      />
+      <Submit
+        name={name}
+        points={points}
+        setName={setName}
+        setPoints={setPoints}
+      />
+    </div>
+  )
+}
+
+export default Input
