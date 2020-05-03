@@ -15,5 +15,4 @@ firebase.initializeApp(config)
 
 export default firebase.firestore()
 
-export { default as addContestant } from './add-contestant'
 export { default as deleteContestant } from './delete-contestant'
