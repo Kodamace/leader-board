@@ -1,19 +1,20 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 
-import { addContestant } from 'services'
+import { useSubmitContestant } from 'hooks'
 
 import { InputContext } from '../'
 
 const Submit = () => {
   const { name, points, setName, setPoints } = useContext(InputContext)
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const { isSubmitting, submit } = useSubmitContestant()
 
-  const handleSubmitClick = async () => {
-    setIsSubmitting(true)
-    await addContestant(name, points)
-    setIsSubmitting(false)
+  const clearInputs = () => {
     setName('')
     setPoints('')
+  }
+
+  const handleSubmitClick = async () => {
+    await submit(name, points, clearInputs)
   }
 
   return (

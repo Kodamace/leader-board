@@ -2,28 +2,13 @@ import React, { StrictMode } from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
-import { createStore } from 'redux'
-import { devToolsEnhancer } from 'redux-devtools-extension'
-import { persistStore, persistReducer } from 'redux-persist'
 import { PersistGate } from 'redux-persist/integration/react'
-import storage from 'redux-persist/lib/storage'
-
-import reducer from 'reducer'
 
 import App from 'App'
-import { ContestantsProvider, ViewportProvider } from 'hooks'
+import { configureStore } from 'core'
+import CustomHooksProvider from 'hooks/provider'
 
-const persistedReducer = persistReducer(
-  {
-    key: 'root',
-    storage,
-  },
-  reducer
-)
-
-const store = createStore(persistedReducer, {}, devToolsEnhancer({}))
-
-const persistor = persistStore(store)
+const { persistor, store } = configureStore()
 
 const rootElement = document.getElementById('root')
 ReactDOM.render(
@@ -34,11 +19,9 @@ ReactDOM.render(
         persistor={persistor}
       >
         <BrowserRouter>
-          <ViewportProvider>
-            <ContestantsProvider>
-              <App />
-            </ContestantsProvider>
-          </ViewportProvider>
+          <CustomHooksProvider>
+            <App />
+          </CustomHooksProvider>
         </BrowserRouter>
       </PersistGate>
     </Provider>

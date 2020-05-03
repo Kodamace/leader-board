@@ -17,4 +17,3 @@ export default firebase.firestore()
 
 export { default as addContestant } from './add-contestant'
 export { default as deleteContestant } from './delete-contestant'
-export { default as getContestant } from './get-contestant'

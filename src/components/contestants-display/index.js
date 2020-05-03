@@ -5,9 +5,9 @@ import { useContestants } from 'hooks'
 import Contestant from './contestant'
 
 const DisplayData = () => {
-  const { contestants } = useContestants()
+  const { contestants, isFetching } = useContestants()
 
-  // if (isFetching) return <h4>Fetching Contestants...</h4>
+  if (isFetching) return <h4>Fetching Contestants...</h4>
 
   return (
     <div>
