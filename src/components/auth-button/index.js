@@ -1,22 +1,20 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
-import { logOut } from 'reducer/actions'
+import { errHandler } from 'helpers'
+import { useUser } from 'hooks'
+import { auth } from 'services'
 
 const AuthButton = () => {
-  const dispatch = useDispatch()
   const history = useHistory()
-  const isLoggedIn = useSelector((state) => state.isLoggedIn)
+  const user = useUser()
 
   function handleClick() {
-    if (isLoggedIn) return dispatch(logOut())
+    if (user) return auth.signOut().catch((err) => errHandler(err))
     return history.push('/login')
   }
 
-  return (
-    <button onClick={handleClick}>{isLoggedIn ? 'Log Out' : 'Log In'}</button>
-  )
+  return <button onClick={handleClick}>{user ? 'Log Out' : 'Log In'}</button>
 }
 
 export default AuthButton

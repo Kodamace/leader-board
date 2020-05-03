@@ -14,5 +14,6 @@ const config = {
 firebase.initializeApp(config)
 
 export default firebase.firestore()
+export const auth = firebase.auth()
 
 export { default as deleteContestant } from './delete-contestant'

@@ -1,5 +1,4 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 
 import {
   AuthButton,
@@ -7,15 +6,16 @@ import {
   ContestantInput,
   Header,
 } from 'components'
+import { useUser } from 'hooks'
 
 const HomePage = () => {
-  const isLoggedIn = useSelector((state) => state.isLoggedIn)
+  const user = useUser()
 
   return (
     <>
       <Header />
       <ContestantsDisplay />
-      {isLoggedIn && <ContestantInput />}
+      {user && <ContestantInput />}
       <br />
       <br />
       <AuthButton />

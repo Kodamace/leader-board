@@ -1,13 +1,14 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+
+import { useUser } from 'hooks'
 
 import DeleteButton from './delete-button'
 import 'styles.css'
 
 const Contestant = ({ id, name, points, rank }) => {
   const history = useHistory()
-  const isLoggedIn = useSelector((state) => state.isLoggedIn)
+  const user = useUser()
 
   const handleClick = () => history.push(`/contestant/${id}`)
 
@@ -16,7 +17,7 @@ const Contestant = ({ id, name, points, rank }) => {
       <div className="ranker">{rank}</div>
       <div className="name">{name}</div>
       <div className="points">{points}</div>
-      {isLoggedIn && <DeleteButton id={id} />}
+      {user && <DeleteButton id={id} />}
       <hr />
       <br />
     </div>

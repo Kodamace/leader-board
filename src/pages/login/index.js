@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-// import { history } from 'core'
 
-import { logIn } from 'reducer/actions'
+import { errHandler } from 'helpers'
+import { useUser } from 'hooks'
+import { auth } from 'services'
 
 const LoginPage = () => {
-  const dispatch = useDispatch()
   const history = useHistory()
-  const isLoggedIn = useSelector((state) => state.isLoggedIn)
-  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const user = useUser()
 
-  function handleUsernameChange(e) {
-    setUsername(e.target.value)
+  function handleEmailChange(e) {
+    setEmail(e.target.value)
   }
 
   function handlePasswordChange(e) {
@@ -21,21 +20,19 @@ const LoginPage = () => {
   }
 
   function handleLoginClick() {
-    dispatch(logIn(username, password))
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .catch((err) => errHandler(err))
   }
 
   useEffect(() => {
-    if (isLoggedIn) history.push('/')
-  }, [history, isLoggedIn])
+    if (user) history.push('/')
+  }, [history, user])
 
   return (
     <>
       <h1>Login</h1>
-      <input
-        onChange={handleUsernameChange}
-        placeholder="username"
-        value={username}
-      />
+      <input onChange={handleEmailChange} placeholder="email" value={email} />
       <input
         onChange={handlePasswordChange}
         placeholder="password"

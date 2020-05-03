@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { UserProvider } from '../use-user'
 import { ViewportProvider } from '../use-viewport'
 
 const wrapWith = (...wrappers) => ({ children }) =>
@@ -8,4 +9,4 @@ const wrapWith = (...wrappers) => ({ children }) =>
     children
   )
 
-export default wrapWith(ViewportProvider)
+export default wrapWith(UserProvider, ViewportProvider)
