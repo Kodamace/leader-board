@@ -1,29 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
-import db from 'services'
+import { useContestants } from 'hooks'
 
 import Contestant from './contestant'
 
 const DisplayData = () => {
-  const [contestants, setContestants] = useState([])
-
-  useEffect(() => {
-    const unsubscribe = db
-      .collection('contestants')
-      .orderBy('points', 'desc')
-      .onSnapshot((snapshot) => {
-        setContestants(
-          snapshot.docs.map((doc, index) => ({
-            ...doc.data(),
-            id: doc.id,
-            rank: index + 1,
-          }))
-        )
-      })
-    return () => {
-      unsubscribe()
-    }
-  }, [])
+  const { contestants } = useContestants()
 
   // if (isFetching) return <h4>Fetching Contestants...</h4>
 
