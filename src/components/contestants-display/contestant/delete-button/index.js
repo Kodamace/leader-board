@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 
-import { deleteContestant } from 'services'
+import { useDeleteContestant } from 'hooks'
 
 const DeleteButton = ({ id }) => {
   const [isDeleting, setIsDeleting] = useState(false)
+  const deleteContestant = useDeleteContestant
 
   const handleClick = async (e) => {
     e.stopPropagation()
