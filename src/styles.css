@@ -51,3 +51,15 @@
 .contestant-row:hover {
   background-color: limegreen;
 }
+
+.match-contestant {
+  cursor: pointer;
+}
+
+.match-contestant:hover {
+  font-weight: bold;
+}
+
+.yellow {
+  background: yellow;
+}

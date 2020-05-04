@@ -3,16 +3,16 @@ import { useState } from 'react'
 import { errHandler } from 'helpers'
 import db from 'services'
 
-const useClearPoints = () => {
+const useClearContestants = () => {
   const [isClearing, setIsClearing] = useState()
 
-  const clearPoints = async () => {
+  const clearContestants = async () => {
     setIsClearing(true)
 
     try {
       const snapshot = await db.collection('contestants').get()
       snapshot.docs.forEach((doc) =>
-        db.collection('contestants').doc(doc.id).update({ points: 0 })
+        db.collection('contestants').doc(doc.id).delete()
       )
     } catch (err) {
       errHandler(err)
@@ -21,7 +21,7 @@ const useClearPoints = () => {
     setIsClearing(false)
   }
 
-  return { clearPoints, isClearing }
+  return { clearContestants, isClearing }
 }
 
-export default useClearPoints
+export default useClearContestants

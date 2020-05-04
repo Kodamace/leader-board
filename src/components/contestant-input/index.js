@@ -1,5 +1,6 @@
 import React, { createContext, useState } from 'react'
 
+import Matches from './matches'
 import Name from './name'
 import Points from './points'
 import Submit from './submit'
@@ -19,9 +20,12 @@ const Input = () => {
     <div>
       Contestant Input <br />
       <InputContext.Provider value={{ name, points, setName, setPoints }}>
-        <Name />
-        <Points />
-        <Submit />
+        <div>
+          <Name />
+          <Points />
+          <Submit />
+        </div>
+        <Matches />
       </InputContext.Provider>
     </div>
   )
