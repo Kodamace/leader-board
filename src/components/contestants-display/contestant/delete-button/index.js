@@ -1,20 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { useDeleteContestant } from 'hooks'
 
 const DeleteButton = ({ id }) => {
-  const [isDeleting, setIsDeleting] = useState(false)
-  const deleteContestant = useDeleteContestant
+  const { deleteContestant, isDeleting } = useDeleteContestant()
 
   const handleClick = async (e) => {
     e.stopPropagation()
-    setIsDeleting(true)
-    try {
-      await deleteContestant(id)
-    } catch (ex) {
-      console.log({ ex })
-      setIsDeleting(false)
-    }
+    await deleteContestant(id)
   }
 
   return (
