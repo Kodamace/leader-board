@@ -11,7 +11,7 @@
   display: inline-block;
 }
 
-.rnk {
+/* .rnk {
   margin-right: 8em;
 }
 
@@ -35,7 +35,7 @@
 .points {
   margin-right: 4em;
   margin-bottom: 1.5em;
-}
+} */
 
 .rankBoard {
   position: absolute;
@@ -62,4 +62,131 @@
 
 .yellow {
   background: yellow;
+}
+
+@media (min-width: 320px) {
+  .rnk {
+    float: left;
+    margin-left: 2em;
+  }
+
+  .nme {
+    font-size: 15px;
+    float: left;
+    margin-left: 1.5em;
+    width: 12em;
+    margin-bottom: 1.5em;
+  }
+
+  .pnts {
+    margin-right: 1em;
+    margin-bottom: 1.5em;
+  }
+
+  .ranker {
+    float: left;
+    margin-left: 2em;
+  }
+
+  .name {
+    font-size: 15px;
+    float: left;
+    margin-left: 1.5em;
+    width: 12em;
+    margin-bottom: 1.5em;
+  }
+
+  .points {
+    margin-right: 1em;
+    margin-bottom: 1.5em;
+  }
+
+  input {
+    width: 120px;
+  }
+}
+
+@media (min-width: 375px) {
+  .rnk {
+    float: left;
+    margin-left: 3.5em;
+  }
+
+  .ranker {
+    float: left;
+    margin-left: 3.5em;
+  }
+
+  input {
+    width: 130px;
+  }
+}
+
+@media (min-width: 414px) {
+  .rnk {
+    float: left;
+    margin-left: 3.7em;
+  }
+
+  .ranker {
+    float: left;
+    margin-left: 3.7em;
+  }
+
+  .nme {
+    width: 14em;
+  }
+
+  .name {
+    width: 14em;
+  }
+
+  input {
+    width: 150px;
+  }
+}
+
+@media (min-width: 768px) {
+  .rnk {
+    float: left;
+    margin-left: 8.7em;
+  }
+
+  .nme {
+    width: 27em;
+  }
+
+  .pnts {
+    margin-right: 8em;
+    margin-bottom: 1.5em;
+  }
+
+  .ranker {
+    float: left;
+    margin-left: 8.7em;
+  }
+
+  .name {
+    width: 27em;
+  }
+
+  .points {
+    margin-right: 8em;
+    margin-bottom: 1.5em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .rnk {
+    float: left;
+    margin-left: 16.8em;
+  }
+
+  .ranker {
+    float: left;
+    margin-left: 16.8em;
+  }
+}
+
+@media (min-width: 1024px) {
 }
