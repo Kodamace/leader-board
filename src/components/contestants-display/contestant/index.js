@@ -14,9 +14,11 @@ const Contestant = ({ id, name, points, rank }) => {
 
   return (
     <div className="contestant-row" onClick={handleClick}>
-      <div className="ranker">{rank}</div>
-      <div className="name">{name}</div>
-      <div className="points">{points}</div>
+      <li className="ranker">{rank}</li>
+      <li className="name">{name}</li>
+      <li className="points">{points}</li>
+      <br />
+      <br />
       {user && <DeleteButton id={id} />}
       <hr />
       <br />

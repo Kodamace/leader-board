@@ -5,7 +5,7 @@ import 'styles.css'
 
 const App = () => (
   <div className="App">
-    <h1>App</h1>
+    <h1>Leaderboard App</h1>
     <Routes />
   </div>
 )
